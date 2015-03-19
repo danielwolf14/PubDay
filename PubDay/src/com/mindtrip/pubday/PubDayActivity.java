@@ -1,9 +1,12 @@
 package com.mindtrip.pubday;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class PubDayActivity extends ActionBarActivity {
@@ -13,8 +16,15 @@ public class PubDayActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pub_day);
         
+        Button btnMapa = (Button) findViewById(R.id.btnMapa);
+        
+        
     }
-
+    
+    public void openMapa(View v){
+    	Intent iMapa = new Intent(this,MapaActivity.class);
+        startActivity(iMapa);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

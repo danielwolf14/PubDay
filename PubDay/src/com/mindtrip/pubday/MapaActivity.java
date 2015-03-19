@@ -7,15 +7,17 @@ import android.view.MenuItem;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
 
-public class MapaActivity extends ActionBarActivity {
+public class MapaActivity extends ActionBarActivity implements OnMapReadyCallback {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mapa);
 		
-		((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
+		MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+		mapFragment.getMapAsync(this);
 	}
 
 	@Override
@@ -35,5 +37,11 @@ public class MapaActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onMapReady(GoogleMap googleMap) {
+		// TODO Auto-generated method stub
+		
 	}
 }
